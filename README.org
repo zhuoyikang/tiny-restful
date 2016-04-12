@@ -1,34 +1,37 @@
-* Setup
+* Intro
 
-** install node & npm
+一个基于Nodejs的弱联网http游戏服务器.
 
-curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash -
-sudo apt-get install -y nodejs
+| http  | [[https://github.com/restify/node-restify][github]]          |
+| redis | [[https://github.com/NodeRedis/node_redis][github]]          |
+| mongo | [[https://github.com/mongodb/node-mongodb-native][github]] [[https://docs.mongodb.org/getting-started/node/client/][tutorial]] |
+| yml   | [[https://github.com/nodeca/js-yaml][github]]          |
+| yargs | [[https://github.com/yargs/yargs][github]]          |
 
-** install [[ https://github.com/restify/node-restify][restify]] 
++ http: 使用http/json做为交互接口
++ redis: redis用来做排名
++ mongo: mongoy从来做存储
++ yml: 解析配置文件
++ yargs: 解析命令行参数
 
+安装各种包:
+
+#+begin_src js
 npm install restify
-http://restify.com/
-
-** redis
-
 npm install redis
-https://github.com/NodeRedis/node_redis
-
-** mongo
-
 npm install mongodb
-https://docs.mongodb.org/getting-started/node/client/
+npm install js-yaml
+npm install yargs
+#+end_src
 
 
 * Error
 
+遇到以下错误直接忽略:
+
+#+begin_src js
 { [Error: Cannot find module './build/Release/DTraceProviderBindings'] code: 'MODULE_NOT_FOUND' }
 { [Error: Cannot find module './build/default/DTraceProviderBindings'] code: 'MODULE_NOT_FOUND' }
 { [Error: Cannot find module './build/Debug/DTraceProviderBindings'] code: 'MODULE_NOT_FOUND' }
+#+end_src
 
-just ignore.
-
-* Demo
-
-http://blog.fens.me/nodejs-restify/
