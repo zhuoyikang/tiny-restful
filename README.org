@@ -2,17 +2,12 @@
 
 一个基于Nodejs的弱联网http游戏服务器.
 
-| http  | [[https://github.com/restify/node-restify][github]]          |
-| redis | [[https://github.com/NodeRedis/node_redis][github]]          |
-| mongo | [[https://github.com/mongodb/node-mongodb-native][github]] [[https://docs.mongodb.org/getting-started/node/client/][tutorial]] |
-| yml   | [[https://github.com/nodeca/js-yaml][github]]          |
-| yargs | [[https://github.com/yargs/yargs][github]]          |
+| http  | [[https://github.com/restify/node-restify][github]] |          | 使用http/json做为交互接口 |
+| redis | [[https://github.com/NodeRedis/node_redis][github]] |          | redis用来做排名           |
+| mongo | [[https://github.com/mongodb/node-mongodb-native][github]] | [[https://docs.mongodb.org/getting-started/node/client/][tutorial]] | mongoy从来做存储          |
+| yml   | [[https://github.com/nodeca/js-yaml][github]] |          | 解析配置文件              |
+| yargs | [[https://github.com/yargs/yargs][github]] |          | 解析命令行参数            |
 
-+ http: 使用http/json做为交互接口
-+ redis: redis用来做排名
-+ mongo: mongoy从来做存储
-+ yml: 解析配置文件
-+ yargs: 解析命令行参数
 
 安装各种包:
 
@@ -27,7 +22,7 @@ npm install yargs
 
 * Error
 
-遇到以下错误直接忽略:
+启动时如果遇到以下错误直接忽略:
 
 #+begin_src js
 { [Error: Cannot find module './build/Release/DTraceProviderBindings'] code: 'MODULE_NOT_FOUND' }
