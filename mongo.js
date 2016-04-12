@@ -10,7 +10,6 @@ var Config=function(conf){
 // 玩家初始化数据
 var userInitData = {"name": "xiaoming", "count": 1}
 
-
 // 根据udid查询玩家数据，不存在则初始化.
 var FindInitUser = function(udid, callback) {
     MongoClient.connect(config.url, function(err, db) {

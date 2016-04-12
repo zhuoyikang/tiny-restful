@@ -2,11 +2,12 @@
 
 一个基于Nodejs的弱联网http游戏服务器.
 
-| http  | [[https://github.com/restify/node-restify][github]] |          | 使用http/json做为交互接口 |
-| redis | [[https://github.com/NodeRedis/node_redis][github]] |          | redis用来做排名           |
-| mongo | [[https://github.com/mongodb/node-mongodb-native][github]] | [[https://docs.mongodb.org/getting-started/node/client/][tutorial]] | mongoy从来做存储          |
-| yml   | [[https://github.com/nodeca/js-yaml][github]] |          | 解析配置文件              |
-| yargs | [[https://github.com/yargs/yargs][github]] |          | 解析命令行参数            |
+| http        | [[https://github.com/restify/node-restify][github]] |          | 使用http/json做为交互接口 |
+| redis       | [[https://github.com/NodeRedis/node_redis][github]] |          | redis用来做排名           |
+| mongo       | [[https://github.com/mongodb/node-mongodb-native][github]] | [[https://docs.mongodb.org/getting-started/node/client/][tutorial]] | mongoy从来做存储          |
+| yml         | [[https://github.com/nodeca/js-yaml][github]] |          | 解析配置文件              |
+| yargs       | [[https://github.com/yargs/yargs][github]] |          | 解析命令行参数            |
+| log4js-node | [[https://github.com/nomiddlename/log4js-node][github]] |          | 日志记录模块              |
 
 
 安装各种包:
@@ -17,6 +18,7 @@ npm install redis
 npm install mongodb
 npm install js-yaml
 npm install yargs
+npm install log4js
 #+end_src
 
 
@@ -30,3 +32,7 @@ npm install yargs
 { [Error: Cannot find module './build/Debug/DTraceProviderBindings'] code: 'MODULE_NOT_FOUND' }
 #+end_src
 
+
+* Ab test
+
+ab -p test/post.json  -n 1000 -c 1  -T application/json -H 'open_udid: abc'  "127.0.0.1:8889/user_count"
