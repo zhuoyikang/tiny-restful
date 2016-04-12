@@ -19,11 +19,12 @@ var FindInitUser = function(udid, callback) {
             assert.equal(null, err);
             if(doc == undefined) {
                 userInitData["_id"]=udid
-                users.insertOne(userInitData, callback, function(err, doc) {
+                users.insertOne(userInitData, function(err, doc1) {
                     assert.equal(null, err);
+                    callback(err, userInitData);
                     db.close();
                 })
-            }else{
+            } else {
                 callback(err,doc)
                 db.close();
             }

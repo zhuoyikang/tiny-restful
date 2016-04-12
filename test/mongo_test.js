@@ -8,7 +8,7 @@ user = {"_id": udid, "name": "xiaoming", "count": 1}
 
 // 创建并初始化一个.
 Mongo.FindInitUser(udid, function(err, doc) {
-    console.log("user ", doc.count)
+    console.log("user ", doc)
 })
 
 // 更新部分玩家数据并保存.
