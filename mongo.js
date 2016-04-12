@@ -11,7 +11,7 @@ var Config=function(conf){
 var userInitData = {"name": "xiaoming", "count": 1}
 
 
-// 根据udid查询玩家数据并初始化
+// 根据udid查询玩家数据，不存在则初始化.
 var FindInitUser = function(udid, callback) {
     MongoClient.connect(config.url, function(err, db) {
         users = db.collection('users')
@@ -32,6 +32,7 @@ var FindInitUser = function(udid, callback) {
     });
 }
 
+// 保存玩家数据，前提是玩家数据一定要存在.
 var ReplaceUser = function(udid, doc) {
     MongoClient.connect(config.url, function(err, db) {
         assert.equal(null, err);
