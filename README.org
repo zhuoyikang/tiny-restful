@@ -1,0 +1,34 @@
+* Setup
+
+** install node & npm
+
+curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash -
+sudo apt-get install -y nodejs
+
+** install [[ https://github.com/restify/node-restify][restify]] 
+
+npm install restify
+http://restify.com/
+
+** redis
+
+npm install redis
+https://github.com/NodeRedis/node_redis
+
+** mongo
+
+npm install mongodb
+https://docs.mongodb.org/getting-started/node/client/
+
+
+* Error
+
+{ [Error: Cannot find module './build/Release/DTraceProviderBindings'] code: 'MODULE_NOT_FOUND' }
+{ [Error: Cannot find module './build/default/DTraceProviderBindings'] code: 'MODULE_NOT_FOUND' }
+{ [Error: Cannot find module './build/Debug/DTraceProviderBindings'] code: 'MODULE_NOT_FOUND' }
+
+just ignore.
+
+* Demo
+
+http://blog.fens.me/nodejs-restify/
