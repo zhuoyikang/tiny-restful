@@ -10,7 +10,7 @@ Rds.RAdd("r1", 6, 'g', {"name":"g"});
 Rds.RAdd("r1", 6, 'h', {"name":"h"});
 
 // Rds.HMGet("r1_hash", [ 'h', 'g', 'f', 'e', 'd', 'c', 'b', 'a' ], function(err, response) {
-//     console.log(response)
+//      console.log(response)
 // })
 
 Rds.RRange("r1", 0, -1, function(err, response) {

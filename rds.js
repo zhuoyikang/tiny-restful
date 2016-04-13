@@ -72,7 +72,9 @@ var RRange = function(Key, rankFrom, rankTo, callback) {
     ZRange(rankKey, rankFrom, rankTo, function(err, response) {
         assert.equal(null, err);
         IdList = response.filter(function(element, index, array) { return index % 2 == 0  });
-        HMGet(hashKey, IdList, callback)
+        HMGet(hashKey, IdList, function(err, response) {
+            console.log("dido", response)
+        })
     })
 }
 
