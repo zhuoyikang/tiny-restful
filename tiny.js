@@ -19,6 +19,7 @@ var assert = require('assert');
 // 自定义模块
 var Config = require('./config');
 var Mongo = require('./mongo');
+var Rds = require('./rds');
 var Logger = require('./logger').cheese;
 
 
@@ -60,11 +61,19 @@ server.post('/user_count', function create(req, res, next) {
         doc.count = doc.count+1;
         Mongo.ReplaceUser(open_udid, doc)
         res.send(200, doc);
+        Rds.RAdd("r2", doc.count, open_udid, {"name":open_udid});
         return next();
     })
 });
 
 
+// 返回玩家排名
+server.post('/user_rank', function create(req, res, next) {
+    Rds.RRange("r2", 0, -1, function(err, response) {
+        res.send(200, response);
+        return next();
+    })
+})
 
 // begin listen
 server.listen(8889, function () {
