@@ -19,5 +19,4 @@ Rds.RRange("r1", 0, -1, function(err, response) {
 
 
 
-//Rds.RDel("r1")
-Rds.Quit();
+//Rds.Quit();

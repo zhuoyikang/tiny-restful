@@ -44,7 +44,7 @@ var HGet = function(hashKey, key) {
 
 // hash API
 var HMGet = function(hashKey, keyList, callback) {
-    console.log("hmget", hashKey, keyList)
+    //console.log("hmget", hashKey, keyList)
     client.hmget(hashKey, keyList, callback);
 }
 
@@ -61,7 +61,7 @@ var HSet = function(hashKey, key, value) {
 var RAdd = function(Key, score, id, data) {
     rankKey = Key+"_zset"
     hashKey = Key+"_hash"
-    HSet(hashKey, id, data.toString())
+    HSet(hashKey, id, JSON.stringify(data))
     ZAdd(rankKey, score, id);
 }
 
@@ -69,11 +69,17 @@ var RAdd = function(Key, score, id, data) {
 var RRange = function(Key, rankFrom, rankTo, callback) {
     rankKey = Key+"_zset"
     hashKey = Key+"_hash"
-    ZRange(rankKey, rankFrom, rankTo, function(err, response) {
+    ZRange(rankKey, rankFrom, rankTo, function(err, responseRange) {
         assert.equal(null, err);
-        IdList = response.filter(function(element, index, array) { return index % 2 == 0  });
+        IdList = responseRange.filter(function(element, index, array) { return index % 2 == 0  });
         HMGet(hashKey, IdList, function(err, response) {
-            console.log("dido", response)
+            var arr = [];
+            for(var i in response) {
+                arr.push(responseRange[i*2])
+                arr.push(responseRange[i*2+1])
+                arr.push(JSON.parse(response[i]))
+            }
+            callback(err, arr)
         })
     })
 }
